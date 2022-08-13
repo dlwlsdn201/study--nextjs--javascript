@@ -1,9 +1,12 @@
 import NavBar from '../components/NavBar';
-export default function Home() {
+
+const about = () => {
 	return (
 		<>
 			<NavBar />
-			<div>Hello</div>
+			<div>about</div>;
 		</>
 	);
-}
+};
+
+export default about;

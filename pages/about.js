@@ -1,8 +1,9 @@
-import NavBar from '../components/NavBar';
+import Seo from './Seo';
 
 const about = () => {
 	return (
 		<>
+			<Seo title='About' />
 			<div>about</div>;
 		</>
 	);

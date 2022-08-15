@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-	const API_KEY = 'aad519b83c9fdb2b8aad15936da11445';
+	// const API_KEY = 'aad519b83c9fdb2b8aad15936da11445';
 
 	const nextConfig = {
 		reactStrictMode: true,
@@ -30,7 +30,7 @@
 			return [
 				{
 					source: '/api/movies', //source 는 무조건 '/' 으로 시작해야한다.
-					destination: `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
+					destination: `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_MOVIE_API_KEY}`
 				}
 			];
 		}

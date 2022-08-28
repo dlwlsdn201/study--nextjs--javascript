@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Seo from './Seo';
 
@@ -28,15 +29,34 @@ export default function Home({ results }) {
 	// 	}))();
 	// }, []);
 
+	const router = useRouter();
+
+	// 직접 클릭 이벤트로 구현한 라우팅 함수
+	const onClick = (id, title) => {
+		router.push(`/movies/${title}/${id}`);
+		// router.push(
+		// 	{
+		// 		pathname: `/movies/${id}`,
+		// 		query: {
+		// 			title
+		// 		}
+		// 	},
+		// 	`/movies/${id}`
+		// );
+	};
+
 	return (
 		<>
 			<div className='container'>
 				<Seo title='Home' />
 				{results?.map((movie) => (
-					<div className='movie' key={movie.id}>
+					<div
+						onClick={() => onClick(movie.id, movie.original_title)}
+						className='movie'
+						key={movie.id}>
 						<img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
 						<h4>
-							<Link href={`/movies/${movie.id}`}>
+							<Link href={`/movies/${movie.original_title}/${movie.id}`}>
 								<a>{movie.original_title}</a>
 							</Link>
 						</h4>

@@ -30,7 +30,7 @@
 			return [
 				{
 					source: '/api/movies', //source 는 무조건 '/' 으로 시작해야한다.
-					destination: `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_MOVIE_API_KEY}`
+					destination: `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.MOVIE_API_KEY}`
 				}
 			];
 		}
